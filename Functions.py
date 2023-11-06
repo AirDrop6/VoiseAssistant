@@ -1,6 +1,7 @@
 import os, webbrowser, sys, subprocess, pyttsx3, requests
 from Syntes_pyttsx3 import speaker
 import json
+import WeatherToken
 
 try:
 	import requests
@@ -14,7 +15,7 @@ def browser():
 
 def weather():
     try:
-        params = {'q': 'Saint Petersburg', 'units': 'metric', 'lang': 'ru', 'appid': '261dac8fc82356ccf1b773a6a47687d7'}
+        params = {'q': 'Saint Petersburg', 'units': 'metric', 'lang': 'ru', 'appid': f'{WeatherToken.TOKEN}'}
         response = requests.get(f'https://api.openweathermap.org/data/2.5/weather', params=params)
         w = response.json()
         speaker(f"На улице {w['weather'][0]['description']} {round(w['main']['temp'])} градусов")
