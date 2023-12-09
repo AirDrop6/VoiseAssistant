@@ -3,7 +3,6 @@ from sklearn.feature_extraction.text import CountVectorizer     #pip install sci
 from sklearn.linear_model import LogisticRegression
 
 import Dataset, Syntes_pyttsx3
-from Functions import *
 
 r = sr.Recognizer()
 mic = sr.Microphone(device_index=2)
